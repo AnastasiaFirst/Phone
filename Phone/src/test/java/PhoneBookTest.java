@@ -34,4 +34,18 @@ class PhoneBookTest {
         assertEquals("67890", phoneBook.findByName("Bob"));
         assertNull(phoneBook.findByName("Charlie")); // Имя не найдено
     }
+    @Test
+    void testPrintAllNames() {
+        phoneBook.add("Alice", "12345");
+        phoneBook.add("Bob", "67890");
+        phoneBook.add("Charlie", "11111");
+
+        // Перенаправляем стандартный вывод для проверки
+        java.io.ByteArrayOutputStream outContent = new java.io.ByteArrayOutputStream();
+        System.setOut(new java.io.PrintStream(outContent));
+
+        phoneBook.printAllNames();
+        String expectedOutput = "Alice\nBob\nCharlie\n"; // Ожидаемый вывод
+        assertEquals(expectedOutput, outContent.toString());
+    }
 }

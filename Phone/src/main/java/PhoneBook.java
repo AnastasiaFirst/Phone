@@ -1,15 +1,21 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class PhoneBook {
     private final Map<String, String> contacts;
+    private final TreeMap<String, String> sortedNames;
+    private String name;
 
     public PhoneBook() {
         this.contacts = new HashMap<>();
+        this.sortedNames = new TreeMap<>();
     }
     public int add(String name, String number) {
         if (!contacts.containsKey(name)) {
             contacts.put(name, number);
+            sortedNames.put(name, number);
+            return contacts.size();
         }
         return contacts.size();
     }
@@ -26,4 +32,7 @@ public class PhoneBook {
         return contacts.get(name);
     }
 
+    public void printAllNames() {
+            System.out.println(name);
+    }
 }
