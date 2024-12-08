@@ -26,4 +26,12 @@ class PhoneBookTest {
         assertEquals("Bob", phoneBook.findByNumber("67890"));
         assertNull(phoneBook.findByNumber("00000")); // Номер не найден
     }
+    @Test
+    void testFindByName() {
+        phoneBook.add("Alice", "12345");
+        phoneBook.add("Bob", "67890");
+        assertEquals("12345", phoneBook.findByName("Alice"));
+        assertEquals("67890", phoneBook.findByName("Bob"));
+        assertNull(phoneBook.findByName("Charlie")); // Имя не найдено
+    }
 }
