@@ -5,7 +5,6 @@ import java.util.TreeMap;
 public class PhoneBook {
     private final Map<String, String> contacts;
     private final TreeMap<String, String> sortedNames;
-    private String name;
 
     public PhoneBook() {
         this.contacts = new HashMap<>();
@@ -33,6 +32,8 @@ public class PhoneBook {
     }
 
     public void printAllNames() {
+        for (String name : sortedNames.keySet()) {
             System.out.println(name);
+        }
     }
 }
