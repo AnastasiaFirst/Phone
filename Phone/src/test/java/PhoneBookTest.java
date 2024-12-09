@@ -45,7 +45,9 @@ class PhoneBookTest {
         System.setOut(new java.io.PrintStream(outContent));
 
         phoneBook.printAllNames();
-        String expectedOutput = "Alice\nBob\nCharlie\n"; // Ожидаемый вывод
+        String expectedOutput = "Alice" + System.lineSeparator() +
+                "Bob" + System.lineSeparator() +
+                "Charlie" + System.lineSeparator(); // Ожидаемый вывод
         assertEquals(expectedOutput, outContent.toString());
     }
 }
